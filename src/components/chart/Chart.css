@@ -1,0 +1,37 @@
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1rem 0;
+    padding: 0;
+}
+
+ul li {
+    padding-right: 50px;
+    text-align: center;
+}
+
+.button-container {
+    display: inline-block;
+}
+
+.progress {
+    height: 0.5rem !important;
+}
+
+.d-none.d-md-table-cell {
+    width: 250px !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+canvas {
+    display: inline-block;
+    position: absolute;
+}
+
+.chart, .chart-loading {
+    height: 352px;
+}
