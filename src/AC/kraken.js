@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { KRAKEN_DATA_REQUEST, KRAKEN_DATA_SUCCESS, KRAKEN_DATA_FAILURE, KRAKEN_DATA_CLEAR, KRAKEN_TICKERS_REQUEST,
     KRAKEN_TICKERS_SUCCESS, KRAKEN_TICKERS_FAILURE } from '../constants/types';
-import { KRAKEN_URL, PROXY_URL } from '../constants/urls';
+import { KRAKEN_URL } from '../constants/urls';
 
 export function krakenActionCreator(CONST, data, interval) {
     return {
@@ -45,10 +45,10 @@ export function krakenDataRequest(currencyFrom, interval, since) {
 
     let currencyTo = 'USD';
     let pair = `${currencyFrom}${currencyTo}`;
-    
+
     return dispatch => {
         dispatch(krakenActionCreator(KRAKEN_DATA_REQUEST));
-        return axios.get(`${PROXY_URL}/${KRAKEN_URL}/OHLC?pair=${pair}&interval=${interval}&since=${since}`).then((response) => {
+        return axios.get(`${KRAKEN_URL}/OHLC?pair=${pair}&interval=${interval}&since=${since}`).then((response) => {
             dispatch(krakenActionCreator(KRAKEN_DATA_SUCCESS, response.data.result[pair], interval));
         }).catch(error => {
             const errorData = error.response.data;

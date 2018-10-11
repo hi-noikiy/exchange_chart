@@ -2,6 +2,7 @@ import React, { Component }  from 'react';
 import { Line } from 'react-chartjs-2';
 import { Col, Card, ListGroup, ListGroupItem, Row, Progress, CardBody, CardHeader, CardFooter,
     ButtonToolbar } from "reactstrap";
+import Loader from 'react-loader-spinner'
 import * as crosshairs from 'chart.crosshairs.js';
 import * as zoom from 'chartjs-plugin-zoom';
 
@@ -117,7 +118,7 @@ class ChartComponent extends Component {
                                             ? <Line data={{ labels: onLabelsGet(), datasets: dataset }} options={options}/>
                                             : <div className="row chart-loading">
                                                 <div className="m-auto">
-                                                    <h6>Loading...</h6>
+                                                    <Loader type="Oval" color="#00BFFF" height="70" width="70"/>
                                                     {onBitFinexErrorShow()}
                                                     {onKrakenErrorShow()}
                                                 </div>
