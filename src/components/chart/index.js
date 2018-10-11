@@ -118,7 +118,11 @@ class ChartComponent extends Component {
                                             ? <Line data={{ labels: onLabelsGet(), datasets: dataset }} options={options}/>
                                             : <div className="row chart-loading">
                                                 <div className="m-auto">
-                                                    <Loader type="Oval" color="#00BFFF" height="70" width="70"/>
+                                                    <div className="m-auto"
+                                                         style={{ display: 'grid', justifyContent: 'center' }}>
+                                                        <Loader type="Oval" color="#00BFFF" height="70" width="70"/>
+                                                    </div>
+                                                    <br/>
                                                     {onBitFinexErrorShow()}
                                                     {onKrakenErrorShow()}
                                                 </div>
